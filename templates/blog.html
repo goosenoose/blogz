@@ -2,31 +2,18 @@
 
 {% block content %}
 
-<h1>Build a Blog</h1>
+    <h1>Build a Blog</h1>
+    
+    {% if blog|length == 0 %}
+    <h2>No posts yet, would you like to <a href="/newpost">write one?</a></h2>
 
-    {% if post|length == 0 %}
-    <p>No posts yet</p>
     {% else %}
-        {% for post in posts %}
-        <h2>{{post.name}}</h2>
-            <!--<form method="POST" action="/delete-task" style="display:inline-block;">
-                <input type="hidden" name="task-id" value="{{task.id}}" />
-                <input type="submit" value="Done!" />
-            </form>-->
-        <p>Sample content here that will be linked to post data</p>
-        <hr />
+        {% for post in blog %}
+            <h2><a href="/blog?id={{post.id}}">{{post.title}}</a></h2>
+            <h4>Published {{post.date}}</h4>
+            <p>{{post.body}}</p>
+            <hr />
         {% endfor %}
     {% endif %}
-    
-    <!--
 
-    <h2>Completed</h2>
-
-    <ul>
-        {% for task in completed_tasks %}
-        <li>{{task.name}}</li>
-        {% endfor %}
-    </ul>
-    -->
-    
 {% endblock %}

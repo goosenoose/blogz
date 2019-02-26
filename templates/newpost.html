@@ -2,21 +2,20 @@
 
 {% block content %}
 
-<h1>Add a Blog Entry</h1>
+<h1>New Blog Entry</h1>
     <form action="/newpost", method='post'>
-        <label>
-            Title for your new blog:<br>
-            <input type="text" name='post-title' />
+        <label>Title:
+            <br>
+            <input type="text" name='posttitle' value="{{posttitle}}">
         </label>
+        <p class="error">{{title_error}}</p>
         <br>
-    
-        <label>
-            Your new blog:<br>
-            <input type="text" name='post' />
+        <label>Post Body:<br>
+            <textarea name='postbody' style="width:666px; height: 333px;">{{postbody}}</textarea>
         </label>
+        <p class="error">{{body_error}}</p>
         <br>
         <input type="submit" value='Add Entry' />
     </form>
-
 
 {% endblock %}
