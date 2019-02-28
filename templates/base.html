@@ -1,26 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        
-        <nav>
-        <a href="/blog">Main Blog Page</a>
-        <a href="/newpost">Add a Blog Entry</a>
-        </nav>
-
-        <title>{{title}}</title>
-
-        <style>
-            h1 {text-align:center;}
-         
-            .error{color: red;}
-
-        </style>
-
-    </head>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Nanum+Myeongjo:800|Archivo+Black" rel="stylesheet">
+</head>
 <body>
-
+<div id="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog Listing</a></li>
+        <li><a href="/newpost">Write a Post</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</div>
+<div>
     {% block content %}
     {% endblock %}
+</div>
 
 </body>
 </html>
